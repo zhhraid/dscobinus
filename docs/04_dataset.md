@@ -44,4 +44,8 @@ Lokasi: `data/raw/`. Satu baris = satu mahasiswa pada satu modul-presentasi (str
 5. **Nilai hasil imputasi**: saat `has_score = 0`, kolom nilai dan delay terisi satu angka yang sama (`avg_score` = 77, `score_Assessment_1` = 70, delay = -1). Jadi angka itu bukan nilai asli; `has_score` dan `no_submission_by_cutoff` adalah penandanya.
 6. **Fitur redundan**: banyak kolom skor/delay identik saat hanya ada 1 asesmen (`avg = median = max = min`).
 
+7. **Kode modul terselip di train** (ditemukan 9 Okt): menurut urutan `id`, 144 baris bertuliskan `M04_P22` (id 25937–26080) berada di tengah blok `M07_P22`, dan 1 baris `M05_P12` (id 24112) di dalam blok `M07_P12`. Cirinya cocok dengan `M07` (SKS ≈33, belum ada nilai, sedikit aktivitas), jadi di preprocessing dikembalikan ke `M07`. Test tidak punya sisipan seperti ini.
+8. **Data dibagi per mahasiswa** (ditemukan 9 Okt): test terdiri dari dua potongan terurut (A: id 26092–29347, B: 29348–32593). Baris yang merupakan mahasiswa yang sama (mis. mengulang modul) hampir selalu berada di himpunan yang sama — train dengan train, A dengan A, B dengan B. Akibatnya: (a) tautan antarbaris cukup dicari di dalam himpunan yang sama; (b) label train **tidak pernah** tersedia untuk "pasangan" sebuah baris test, jadi gagasan memakai label pasangan sebagai fitur tidak bisa dipakai (di train terlihat menaikkan skor, tetapi itu tidak berlaku untuk test).
+9. **Tidak ada pergeseran distribusi train–test** pada fitur asli: model pembeda train-vs-test hanya mencapai AUC 0,50.
+
 Poin 1–3 jika dibiarkan akan membuat distribusi train dan test tampak berbeda padahal tidak, jadi kerjakan di tahap preprocessing paling awal.
