@@ -13,6 +13,21 @@ Nama file: `submission_N.csv`. Kolom: `id,at_risk`.
 | 5 | 16 Okt 2026 (disubmit) | `submission_5.csv` | `notebooks/99_final_submission.ipynb` | (1) Tautan **lintas modul**: mahasiswa yang sama di modul lain (bersamaan atau berurutan, terutama `M03` dengan `M04`/`M05`/`M06`), hanya pada 19 pasangan blok yang lolos uji rantai-vs-acak (z ≥ 4); gugus & potongan semu ikut memakai tautan ini. (2) 15 fitur relatif kohort (peringkat persentil dalam modul-presentasi, `vle_imputed`, rasio aktivitas akhir). (3) Validasi Stratified**Group** 5-fold per gugus mahasiswa. (4) LightGBM dengan hyperparameter Optuna (45 percobaan, di luar notebook). (5) Blend LightGBM + XGBoost (CatBoost dibuang), masing-masing 3 seed. Threshold 0,38 | 0,7818 (AUC 0,8544, log loss 0,4623); maksimum mentah 0,7821 @0,37 | 0,79012 | Pembanding adil (skema fold yang sama, fold seed 123 & 2024 yang tidak dipakai tuning): pipeline no. 4 F1 0,7794 / 0,7791, AUC 0,8526 / 0,8527 → pipeline no. 5 F1 0,7819 / 0,7811, AUC 0,8549 / 0,8549. Kenaikan ±0,002–0,0025 F1, lebih kecil dari derau public LB (±0,01 untuk ±1.950 baris), jadi LB bisa naik atau turun sedikit. 235 prediksi berubah dari no. 4 (121 jadi berisiko) |
 | 6 | 19 Okt 2026 (dibuat, **belum disubmit**) | `submission_6.csv` | `notebooks/99_final_submission.ipynb` | Ensemble rata-rata dua pipeline: A = pipeline no. 5 (LGB+XGB, semua fitur), B = konfigurasi no. 4 (tanpa fitur lintas modul & kohort, LGB+XGB+CAT). Threshold 0,38 | 0,7810 (AUC 0,8545); fold seed 123 / 2024: AUC 0,8551 / 0,8551 (A 0,8549 / 0,8547, B 0,8526 / 0,8527) | | Prediksi berada di antara no. 4 dan no. 5 (127 beda dari no. 4, 118 dari no. 5). Semua varian berbeda < 0,001 F1 di CV, jadi selisih LB 4 vs 5 (−0,010) adalah derau public LB (±70 baris berubah di ±1.950 baris public). Pseudo-labelling (ambang 0,1/0,9 dan 0,2/0,8) juga dicoba: ±0,001, tidak konsisten antar-fold, tidak dipakai |
 
+## Eksperimen yang tidak dipakai (19 Okt, CV fold seed 123, grup per mahasiswa)
+
+Pembanding: blend LightGBM + XGBoost pipeline no. 5 → AUC 0,8549, F1 0,7815.
+
+| Percobaan | AUC | F1 | Kesimpulan |
+|---|---|---|---|
+| + ExtraTrees (bobot 0,15) | 0,8550 | 0,7817 | derau |
+| + RandomForest (0,15) | 0,8548 | 0,7816 | derau |
+| + HistGradientBoosting (0,15) | 0,8549 | 0,7811 | derau |
+| + MLP 3 seed (0,15) | 0,8550 | 0,7809 | derau |
+| Pseudo-label test (0,1/0,9 dan 0,2/0,8) | 0,8550–0,8556 | 0,7808–0,7826 | tidak konsisten antar-fold |
+| Probabilitas pasangan lintas modul (stacking) | +0,0003 | ±0 | tidak sebanding dengan kerumitannya |
+
+Semua varian berada dalam ±0,001 F1: model sudah jenuh pada informasi yang tersedia di data 4 minggu pertama.
+
 ## Final submission terpilih
 
 | File | Alasan dipilih |
