@@ -34,6 +34,10 @@ Audit kebocoran (20 Okt), semuanya negatif:
 - Tidak ada imputasi yang bergantung label (nilai imputasi sama untuk kedua kelas).
 - Tautan mahasiswa test ↔ train (yang labelnya diketahui) tidak nyata: rasio pasangan dekat/jauh kurva untuk test–train (0,30 mengulang; 0,08 lintas modul) setara dengan test A–test B (0,27; 0,07), yang merupakan tabrakan acak. Jadi data benar-benar dibagi per mahasiswa.
 
+Audit lanjutan (21 Okt), juga negatif:
+- Tautan mengulang dengan lompatan percobaan selain +1: +0 tidak nyata (rasio dekat/jauh 0,028 ≈ acak); +2 nyata (0,178; 53 pasangan di train, pendahulu 83% berisiko), tetapi **0 baris test** punya tautan +2 di dalam potongannya.
+- Latih ulang pada 100% train (iterasi = rata-rata early stopping × 1,2, 3 seed) dibanding rata-rata model fold, diuji pada 5 holdout 20%: AUC +0,0002, F1@0,38 −0,0005. Tidak dipakai.
+
 ## Final submission terpilih
 
 | File | Alasan dipilih |
