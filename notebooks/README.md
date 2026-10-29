@@ -7,7 +7,7 @@ Penamaan: `NN_topik.ipynb`, berurutan sesuai alur kerja.
 | `99_final_submission.ipynb` | **Sudah ada.** Notebook yang dikumpulkan ke panitia: EDA → Preprocessing → Pemilihan Model → Evaluasi → Submission |
 | `01_eda.ipynb` dst. | Belum ada. Tempat eksperimen lanjutan sebelum dipindahkan ke notebook final |
 
-File keluaran bernama `submission_<nomor>.csv`; nomornya diatur lewat `SUBMISSION_NO` di sel setup. Lama Run All ≈ 3 menit.
+File keluaran bernama `submission_<nomor>.csv`; nomornya diatur lewat `SUBMISSION_NO` di sel setup. Lama Run All ≈ 5 menit (4 inti CPU).
 
 ## Aturan untuk `99_final_submission.ipynb`
 
