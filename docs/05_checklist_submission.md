@@ -34,7 +34,8 @@
 - [ ] Satu folder Google Drive berisi notebook final + CSV
 - [ ] Akses link: siapa saja yang punya link bisa melihat
 - [ ] Link diisi ke Google Form panitia
-- [ ] Dua final submission sudah dipilih di Kaggle sebelum 31 Okt
+- [ ] **Satu** final submission sudah dipilih di Kaggle sebelum babak penyisihan ditutup (31 Okt) — pilihan tim: no. 6
+- [ ] Nama CSV di folder Drive sama dengan file yang di-upload ke Kaggle (isinya identik dengan keluaran notebook)
 
 ## Persiapan final (jika lolos)
 
