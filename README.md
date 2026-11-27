@@ -56,6 +56,7 @@ dscobinus/
 | [docs/03_timeline.md](docs/03_timeline.md) | Jadwal dan anggaran submission |
 | [docs/04_dataset.md](docs/04_dataset.md) | Deskripsi dataset, kelompok fitur, temuan kualitas data |
 | [docs/05_checklist_submission.md](docs/05_checklist_submission.md) | Checklist sebelum submit dan sebelum pengumpulan |
+| [docs/06_briefing_final.md](docs/06_briefing_final.md) | Briefing babak final: angka kunci, notebook, struktur PPT, naskah 13 menit, bank tanya jawab, checklist hari-H |
 | [submissions/README.md](submissions/README.md) | Log setiap submission |
 
 ## Setup
