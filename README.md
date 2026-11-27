@@ -58,6 +58,7 @@ dscobinus/
 | [docs/05_checklist_submission.md](docs/05_checklist_submission.md) | Checklist sebelum submit dan sebelum pengumpulan |
 | [docs/06_briefing_final.md](docs/06_briefing_final.md) | Briefing babak final: angka kunci, notebook, struktur PPT, naskah 13 menit, bank tanya jawab, checklist hari-H |
 | [docs/07_latihan_tanya_jawab.md](docs/07_latihan_tanya_jawab.md) | 60 pertanyaan latihan tanya jawab final + kunci jawaban, rantai pertanyaan lanjutan, cara latihan |
+| [docs/08_materi_presentasi.md](docs/08_materi_presentasi.md) | Materi presentasi final versi bacaan: penjelasan isi, alasan, dan pesan untuk juri di setiap slide |
 | [submissions/README.md](submissions/README.md) | Log setiap submission |
 
 ## Setup
